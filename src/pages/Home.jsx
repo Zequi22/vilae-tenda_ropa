@@ -19,6 +19,7 @@ import { ArrowIcon, StarIcon } from '../components/Icons.jsx'
 
 const spans = ['lg:col-span-7', 'lg:col-span-5', 'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-6']
 const tilts = ['-1deg', '1.4deg', '-1.8deg', '0.8deg', '-1.2deg', '1.6deg']
+const singleColumnSlugs = ['thrifting-guia-chollos', 'dos-looks-un-presupuesto-calle-elegante']
 
 export default function Home() {
   usePageMeta(null, 'Calle Corta es una revista ficticia de moda joven, asequible y de calle. Looks que se ven caros y cuestan poco.')
@@ -161,7 +162,7 @@ export default function Home() {
                   key={article.slug}
                   article={article}
                   tilt={tilts[index % tilts.length]}
-                  className={`${spans[index % spans.length]} ${index % 3 === 1 ? 'lg:mt-10' : ''}`}
+                  className={`${singleColumnSlugs.includes(article.slug) ? 'lg:col-span-4' : spans[index % spans.length]} ${index % 3 === 1 ? 'lg:mt-10' : ''}`}
                 />
               ))}
             </div>
